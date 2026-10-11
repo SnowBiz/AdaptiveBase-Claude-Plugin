@@ -90,6 +90,11 @@ Read performed sets for a canonical exercise ID; weights are pounds and unknown 
     "exerciseId": {
       "type": "string",
       "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+    },
+    "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100
     }
   },
   "required": [
@@ -1271,8 +1276,7 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
                 }
               },
               "required": [
-                "average",
-                "max"
+                "average"
               ],
               "additionalProperties": false
             },
@@ -1314,8 +1318,7 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
             "type",
             "startedAt",
             "durationSeconds",
-            "distanceMeters",
-            "rpe"
+            "distanceMeters"
           ],
           "additionalProperties": false
         },
@@ -1682,6 +1685,23 @@ Record observed sleep/health with source provenance, subjective daily recovery, 
             "assessmentId": {
               "type": "string",
               "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+            },
+            "assessmentKey": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+            },
+            "category": {
+              "type": "string",
+              "enum": [
+                "STRENGTH",
+                "GRIP_PULLING",
+                "AEROBIC",
+                "MOBILITY",
+                "OTHER"
+              ]
+            },
+            "lowerIsBetter": {
+              "type": "boolean"
             },
             "metricType": {
               "type": "string",
