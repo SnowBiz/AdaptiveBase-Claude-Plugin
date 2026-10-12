@@ -1647,6 +1647,44 @@ Record observed sleep/health with source provenance, subjective daily recovery, 
                 "NORMAL",
                 "HIGH"
               ]
+            },
+            "fatigue": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "stress": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "illness": {
+              "type": "boolean"
+            },
+            "confounders": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ALCOHOL",
+                  "TRAVEL",
+                  "LATE_MEAL",
+                  "POOR_SLEEP_ENVIRONMENT",
+                  "STRESSFUL_EVENT",
+                  "OTHER"
+                ]
+              },
+              "maxItems": 6
+            },
+            "cyclePhase": {
+              "type": "string",
+              "enum": [
+                "MENSTRUAL",
+                "FOLLICULAR",
+                "OVULATORY",
+                "LUTEAL",
+                "UNKNOWN"
+              ]
             }
           },
           "required": [
@@ -2246,6 +2284,62 @@ Read programs, adaptations or reusable templates; update supported profile field
                   },
                   "minItems": 1,
                   "maxItems": 7
+                },
+                "plannedRuns": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "runId": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+                      },
+                      "day": {
+                        "type": "string",
+                        "enum": [
+                          "MONDAY",
+                          "TUESDAY",
+                          "WEDNESDAY",
+                          "THURSDAY",
+                          "FRIDAY",
+                          "SATURDAY",
+                          "SUNDAY"
+                        ]
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "EASY",
+                          "EASY_RUN_WALK",
+                          "TEMPO",
+                          "INTERVAL",
+                          "LONG",
+                          "RACE"
+                        ]
+                      },
+                      "durationMinutes": {
+                        "type": "number",
+                        "exclusiveMinimum": 0,
+                        "maximum": 1440
+                      },
+                      "distanceMeters": {
+                        "type": "number",
+                        "exclusiveMinimum": 0,
+                        "maximum": 500000
+                      },
+                      "notes": {
+                        "type": "string",
+                        "maxLength": 500
+                      }
+                    },
+                    "required": [
+                      "runId",
+                      "day",
+                      "type"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 14
                 }
               },
               "required": [
@@ -2535,6 +2629,62 @@ Read programs, adaptations or reusable templates; update supported profile field
                   },
                   "minItems": 1,
                   "maxItems": 7
+                },
+                "plannedRuns": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "runId": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+                      },
+                      "day": {
+                        "type": "string",
+                        "enum": [
+                          "MONDAY",
+                          "TUESDAY",
+                          "WEDNESDAY",
+                          "THURSDAY",
+                          "FRIDAY",
+                          "SATURDAY",
+                          "SUNDAY"
+                        ]
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "EASY",
+                          "EASY_RUN_WALK",
+                          "TEMPO",
+                          "INTERVAL",
+                          "LONG",
+                          "RACE"
+                        ]
+                      },
+                      "durationMinutes": {
+                        "type": "number",
+                        "exclusiveMinimum": 0,
+                        "maximum": 1440
+                      },
+                      "distanceMeters": {
+                        "type": "number",
+                        "exclusiveMinimum": 0,
+                        "maximum": 500000
+                      },
+                      "notes": {
+                        "type": "string",
+                        "maxLength": 500
+                      }
+                    },
+                    "required": [
+                      "runId",
+                      "day",
+                      "type"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 14
                 }
               },
               "required": [
@@ -2824,6 +2974,62 @@ Read programs, adaptations or reusable templates; update supported profile field
               },
               "minItems": 1,
               "maxItems": 7
+            },
+            "plannedRuns": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "runId": {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+                  },
+                  "day": {
+                    "type": "string",
+                    "enum": [
+                      "MONDAY",
+                      "TUESDAY",
+                      "WEDNESDAY",
+                      "THURSDAY",
+                      "FRIDAY",
+                      "SATURDAY",
+                      "SUNDAY"
+                    ]
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "EASY",
+                      "EASY_RUN_WALK",
+                      "TEMPO",
+                      "INTERVAL",
+                      "LONG",
+                      "RACE"
+                    ]
+                  },
+                  "durationMinutes": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 1440
+                  },
+                  "distanceMeters": {
+                    "type": "number",
+                    "exclusiveMinimum": 0,
+                    "maximum": 500000
+                  },
+                  "notes": {
+                    "type": "string",
+                    "maxLength": 500
+                  }
+                },
+                "required": [
+                  "runId",
+                  "day",
+                  "type"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 14
             }
           },
           "required": [
@@ -3204,6 +3410,62 @@ Send a program proposal for a consenting client to approve in the portal, or rec
                   },
                   "minItems": 1,
                   "maxItems": 7
+                },
+                "plannedRuns": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "runId": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9_-]{1,100}$"
+                      },
+                      "day": {
+                        "type": "string",
+                        "enum": [
+                          "MONDAY",
+                          "TUESDAY",
+                          "WEDNESDAY",
+                          "THURSDAY",
+                          "FRIDAY",
+                          "SATURDAY",
+                          "SUNDAY"
+                        ]
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "EASY",
+                          "EASY_RUN_WALK",
+                          "TEMPO",
+                          "INTERVAL",
+                          "LONG",
+                          "RACE"
+                        ]
+                      },
+                      "durationMinutes": {
+                        "type": "number",
+                        "exclusiveMinimum": 0,
+                        "maximum": 1440
+                      },
+                      "distanceMeters": {
+                        "type": "number",
+                        "exclusiveMinimum": 0,
+                        "maximum": 500000
+                      },
+                      "notes": {
+                        "type": "string",
+                        "maxLength": 500
+                      }
+                    },
+                    "required": [
+                      "runId",
+                      "day",
+                      "type"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 14
                 }
               },
               "required": [

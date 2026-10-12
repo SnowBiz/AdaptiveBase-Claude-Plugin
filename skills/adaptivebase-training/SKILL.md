@@ -39,9 +39,17 @@ For missing health, offer accessible measurements or reported sleep. Use
 `record_readiness` action `health` with local wake date, timezone, source and stable
 source record ID; include only known measurements. This does not read Apple Health.
 Keep HRV SDNN and RMSSD distinct; never sum competing sources. For missing recovery,
-ask subjective sleep quality, energy, motivation, soreness and pain; action `recovery`
-requires actual reported facts. Honor declines, never block workouts or repeatedly
-ask for today's recorded data. Measurements provide context, not a diagnosis.
+ask subjective sleep quality, energy, motivation, soreness and pain, and where the
+athlete is willing fatigue, stress, illness symptoms and anything that may have
+affected the night (alcohol, travel, a late meal); action `recovery` requires actual
+reported facts. Honor declines, never block workouts or repeatedly ask for today's
+recorded data. Measurements provide context, not a diagnosis.
+
+`context.readinessAssessment` compares today with the athlete's own baselines (it
+says when there is not yet enough data). Present it as a suggestion the athlete
+decides on (keep easy, shorten or a recovery day), in wellness language; never
+turn it into a new distance or pace, an injury or illness claim, or a reason to do
+more.
 
 ## Work out and record
 
