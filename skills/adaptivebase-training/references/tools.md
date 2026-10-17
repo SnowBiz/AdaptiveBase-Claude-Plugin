@@ -689,12 +689,26 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
               ]
             },
             "validFrom": {
-              "type": "string",
-              "format": "date-time"
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "validUntil": {
-              "type": "string",
-              "format": "date-time"
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "null"
+                }
+              ]
             },
             "notes": {
               "type": "string",
