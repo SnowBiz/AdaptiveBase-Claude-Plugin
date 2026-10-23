@@ -2254,6 +2254,14 @@ Read programs, adaptations or reusable templates; update supported profile field
                               "minimum": 0,
                               "maximum": 1800
                             },
+                            "priority": {
+                              "type": "string",
+                              "enum": [
+                                "PRIMARY",
+                                "SECONDARY",
+                                "OPTIONAL"
+                              ]
+                            },
                             "progression": {
                               "type": "object",
                               "properties": {
@@ -2265,6 +2273,9 @@ Read programs, adaptations or reusable templates; update supported profile field
                                   "type": "number",
                                   "exclusiveMinimum": 0,
                                   "maximum": 100
+                                },
+                                "defaulted": {
+                                  "type": "boolean"
                                 }
                               },
                               "required": [
@@ -2599,6 +2610,14 @@ Read programs, adaptations or reusable templates; update supported profile field
                               "minimum": 0,
                               "maximum": 1800
                             },
+                            "priority": {
+                              "type": "string",
+                              "enum": [
+                                "PRIMARY",
+                                "SECONDARY",
+                                "OPTIONAL"
+                              ]
+                            },
                             "progression": {
                               "type": "object",
                               "properties": {
@@ -2610,6 +2629,9 @@ Read programs, adaptations or reusable templates; update supported profile field
                                   "type": "number",
                                   "exclusiveMinimum": 0,
                                   "maximum": 100
+                                },
+                                "defaulted": {
+                                  "type": "boolean"
                                 }
                               },
                               "required": [
@@ -2944,6 +2966,14 @@ Read programs, adaptations or reusable templates; update supported profile field
                           "minimum": 0,
                           "maximum": 1800
                         },
+                        "priority": {
+                          "type": "string",
+                          "enum": [
+                            "PRIMARY",
+                            "SECONDARY",
+                            "OPTIONAL"
+                          ]
+                        },
                         "progression": {
                           "type": "object",
                           "properties": {
@@ -2955,6 +2985,9 @@ Read programs, adaptations or reusable templates; update supported profile field
                               "type": "number",
                               "exclusiveMinimum": 0,
                               "maximum": 100
+                            },
+                            "defaulted": {
+                              "type": "boolean"
                             }
                           },
                           "required": [
@@ -3380,6 +3413,14 @@ Send a program proposal for a consenting client to approve in the portal, or rec
                               "minimum": 0,
                               "maximum": 1800
                             },
+                            "priority": {
+                              "type": "string",
+                              "enum": [
+                                "PRIMARY",
+                                "SECONDARY",
+                                "OPTIONAL"
+                              ]
+                            },
                             "progression": {
                               "type": "object",
                               "properties": {
@@ -3391,6 +3432,9 @@ Send a program proposal for a consenting client to approve in the portal, or rec
                                   "type": "number",
                                   "exclusiveMinimum": 0,
                                   "maximum": 100
+                                },
+                                "defaulted": {
+                                  "type": "boolean"
                                 }
                               },
                               "required": [
