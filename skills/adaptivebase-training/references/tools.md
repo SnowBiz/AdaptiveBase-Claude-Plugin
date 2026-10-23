@@ -12,10 +12,10 @@ Identify the authenticated AdaptiveBase account. Returns only an opaque stable p
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {},
-  "additionalProperties": false,
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "additionalProperties": false
 }
 ```
 
@@ -25,10 +25,10 @@ Get current training context, daily health/recovery gaps, baseline assessments a
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {},
-  "additionalProperties": false,
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "additionalProperties": false
 }
 ```
 
@@ -38,10 +38,10 @@ Get today's prescribed workout in the athlete's timezone. Displays a workout car
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {},
-  "additionalProperties": false,
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "additionalProperties": false
 }
 ```
 
@@ -51,6 +51,7 @@ Resume an existing workout session from its authoritative prescription and perfo
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "sessionId": {
@@ -61,8 +62,7 @@ Resume an existing workout session from its authoritative prescription and perfo
   "required": [
     "sessionId"
   ],
-  "additionalProperties": false,
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "additionalProperties": false
 }
 ```
 
@@ -72,10 +72,10 @@ Read recorded workout, running, recovery and mobility history.
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {},
-  "additionalProperties": false,
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "additionalProperties": false
 }
 ```
 
@@ -85,6 +85,7 @@ Read performed sets for a canonical exercise ID; weights are pounds and unknown 
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "exerciseId": {
@@ -100,8 +101,7 @@ Read performed sets for a canonical exercise ID; weights are pounds and unknown 
   "required": [
     "exerciseId"
   ],
-  "additionalProperties": false,
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "additionalProperties": false
 }
 ```
 
@@ -111,10 +111,10 @@ Get deterministic weekly analytics, strength records and training totals. Displa
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {},
-  "additionalProperties": false,
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "additionalProperties": false
 }
 ```
 
@@ -124,6 +124,7 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "anyOf": [
     {
       "type": "object",
@@ -188,12 +189,12 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
               ]
             },
             "equipment": {
+              "maxItems": 50,
               "type": "array",
               "items": {
                 "type": "string",
                 "maxLength": 100
-              },
-              "maxItems": 50
+              }
             },
             "locationId": {
               "type": "string",
@@ -279,12 +280,12 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
               "pattern": "^[a-zA-Z0-9_-]{1,100}$"
             },
             "equipment": {
+              "maxItems": 50,
               "type": "array",
               "items": {
                 "type": "string",
                 "maxLength": 100
-              },
-              "maxItems": 50
+              }
             },
             "locationId": {
               "type": "string",
@@ -305,6 +306,7 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
               ]
             },
             "preserve": {
+              "maxItems": 2,
               "type": "array",
               "items": {
                 "type": "string",
@@ -312,8 +314,7 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
                   "MOVEMENT_PATTERN",
                   "PRIMARY_MUSCLES"
                 ]
-              },
-              "maxItems": 2
+              }
             },
             "limit": {
               "type": "integer",
@@ -347,12 +348,12 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
               "pattern": "^[a-zA-Z0-9_-]{1,100}$"
             },
             "equipment": {
+              "maxItems": 50,
               "type": "array",
               "items": {
                 "type": "string",
                 "maxLength": 100
-              },
-              "maxItems": 50
+              }
             },
             "locationId": {
               "type": "string",
@@ -373,6 +374,7 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
               ]
             },
             "preserve": {
+              "maxItems": 2,
               "type": "array",
               "items": {
                 "type": "string",
@@ -380,8 +382,7 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
                   "MOVEMENT_PATTERN",
                   "PRIMARY_MUSCLES"
                 ]
-              },
-              "maxItems": 2
+              }
             },
             "limit": {
               "type": "integer",
@@ -415,12 +416,12 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
               "pattern": "^[a-zA-Z0-9_-]{1,100}$"
             },
             "equipment": {
+              "maxItems": 50,
               "type": "array",
               "items": {
                 "type": "string",
                 "maxLength": 100
-              },
-              "maxItems": 50
+              }
             },
             "locationId": {
               "type": "string",
@@ -441,6 +442,7 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
               ]
             },
             "preserve": {
+              "maxItems": 2,
               "type": "array",
               "items": {
                 "type": "string",
@@ -448,8 +450,7 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
                   "MOVEMENT_PATTERN",
                   "PRIMARY_MUSCLES"
                 ]
-              },
-              "maxItems": 2
+              }
             },
             "limit": {
               "type": "integer",
@@ -479,18 +480,20 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
           "type": "object",
           "properties": {
             "equipment": {
+              "maxItems": 50,
               "type": "array",
               "items": {
                 "type": "string",
                 "maxLength": 100
-              },
-              "maxItems": 50
+              }
             },
             "locationId": {
               "type": "string",
               "pattern": "^[a-zA-Z0-9_-]{1,100}$"
             },
             "movementPatterns": {
+              "minItems": 1,
+              "maxItems": 8,
               "type": "array",
               "items": {
                 "type": "string",
@@ -515,9 +518,7 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
                   "MOBILITY",
                   "UNKNOWN"
                 ]
-              },
-              "minItems": 1,
-              "maxItems": 8
+              }
             },
             "goal": {
               "type": "string",
@@ -554,7 +555,6 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
       ]
     }
   ],
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "action": {},
@@ -570,6 +570,7 @@ Read owned gym locations, inspect a private photo from their photo IDs, or match
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "anyOf": [
     {
       "type": "object",
@@ -639,7 +640,6 @@ Read owned gym locations, inspect a private photo from their photo IDs, or match
       ]
     }
   ],
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "action": {},
@@ -655,6 +655,7 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "anyOf": [
     {
       "type": "object",
@@ -672,7 +673,8 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
             },
             "expectedVersion": {
               "type": "integer",
-              "minimum": 0
+              "minimum": 0,
+              "maximum": 9007199254740991
             },
             "name": {
               "type": "string",
@@ -692,7 +694,8 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
               "anyOf": [
                 {
                   "type": "string",
-                  "format": "date-time"
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
                 },
                 {
                   "type": "null"
@@ -703,7 +706,8 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
               "anyOf": [
                 {
                   "type": "string",
-                  "format": "date-time"
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
                 },
                 {
                   "type": "null"
@@ -725,7 +729,8 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -750,7 +755,8 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
             },
             "expectedVersion": {
               "type": "integer",
-              "minimum": 0
+              "minimum": 0,
+              "maximum": 9007199254740991
             },
             "asDefault": {
               "type": "boolean"
@@ -765,7 +771,8 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -790,9 +797,11 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
             },
             "expectedVersion": {
               "type": "integer",
-              "minimum": 0
+              "minimum": 0,
+              "maximum": 9007199254740991
             },
             "equipment": {
+              "maxItems": 50,
               "type": "array",
               "items": {
                 "type": "object",
@@ -838,16 +847,15 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
                   "name"
                 ],
                 "additionalProperties": false
-              },
-              "maxItems": 50
+              }
             },
             "photoIds": {
+              "maxItems": 12,
               "type": "array",
               "items": {
                 "type": "string",
                 "pattern": "^[a-zA-Z0-9_-]{1,100}$"
-              },
-              "maxItems": 12
+              }
             },
             "notes": {
               "type": "string",
@@ -865,7 +873,8 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -890,9 +899,11 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
             },
             "expectedVersion": {
               "type": "integer",
-              "minimum": 0
+              "minimum": 0,
+              "maximum": 9007199254740991
             },
             "equipment": {
+              "maxItems": 50,
               "type": "array",
               "items": {
                 "type": "object",
@@ -938,8 +949,7 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
                   "name"
                 ],
                 "additionalProperties": false
-              },
-              "maxItems": 50
+              }
             },
             "userConfirmed": {
               "type": "boolean",
@@ -956,7 +966,8 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -966,7 +977,6 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
       ]
     }
   ],
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "action": {},
@@ -983,6 +993,7 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "anyOf": [
     {
       "type": "object",
@@ -999,13 +1010,13 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
               "pattern": "^[a-zA-Z0-9_-]{1,100}$"
             },
             "exerciseIds": {
+              "minItems": 1,
+              "maxItems": 20,
               "type": "array",
               "items": {
                 "type": "string",
                 "pattern": "^[a-zA-Z0-9_-]{1,100}$"
-              },
-              "minItems": 1,
-              "maxItems": 20
+              }
             }
           },
           "required": [
@@ -1015,7 +1026,8 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -1048,6 +1060,7 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
               "maximum": 100
             },
             "setType": {
+              "default": "WORKING",
               "type": "string",
               "enum": [
                 "WARMUP",
@@ -1058,8 +1071,7 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
                 "ASSESSMENT",
                 "TECHNIQUE",
                 "FAILURE"
-              ],
-              "default": "WORKING"
+              ]
             },
             "weightLb": {
               "type": "number",
@@ -1132,7 +1144,8 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
             },
             "completedAt": {
               "type": "string",
-              "format": "date-time"
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
             }
           },
           "required": [
@@ -1147,7 +1160,8 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -1183,7 +1197,8 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -1213,7 +1228,8 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
             },
             "completedAt": {
               "type": "string",
-              "format": "date-time"
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
             }
           },
           "required": [
@@ -1224,7 +1240,8 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -1256,7 +1273,8 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
             },
             "startedAt": {
               "type": "string",
-              "format": "date-time"
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
             },
             "durationSeconds": {
               "type": "number",
@@ -1297,6 +1315,7 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
               "minimum": 0
             },
             "intervals": {
+              "maxItems": 100,
               "type": "array",
               "items": {
                 "type": "object",
@@ -1318,8 +1337,7 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
                   "durationSeconds"
                 ],
                 "additionalProperties": false
-              },
-              "maxItems": 100
+              }
             },
             "notes": {
               "type": "string",
@@ -1336,7 +1354,8 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -1375,20 +1394,20 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
               "maximum": 10
             },
             "areas": {
+              "maxItems": 30,
               "type": "array",
               "items": {
                 "type": "string",
                 "maxLength": 100
-              },
-              "maxItems": 30
+              }
             },
             "movements": {
+              "maxItems": 100,
               "type": "array",
               "items": {
                 "type": "string",
                 "maxLength": 200
-              },
-              "maxItems": 100
+              }
             }
           },
           "required": [
@@ -1403,7 +1422,8 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -1413,7 +1433,6 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
       ]
     }
   ],
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "action": {},
@@ -1430,6 +1449,7 @@ Record observed sleep/health with source provenance, subjective daily recovery, 
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "anyOf": [
     {
       "type": "object",
@@ -1481,11 +1501,13 @@ Record observed sleep/health with source provenance, subjective daily recovery, 
               "properties": {
                 "start": {
                   "type": "string",
-                  "format": "date-time"
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
                 },
                 "end": {
                   "type": "string",
-                  "format": "date-time"
+                  "format": "date-time",
+                  "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
                 },
                 "durationMinutes": {
                   "type": "number",
@@ -1568,7 +1590,8 @@ Record observed sleep/health with source provenance, subjective daily recovery, 
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -1623,16 +1646,18 @@ Record observed sleep/health with source provenance, subjective daily recovery, 
             },
             "soreness": {
               "type": "object",
+              "propertyNames": {
+                "type": "string",
+                "maxLength": 100
+              },
               "additionalProperties": {
                 "type": "number",
                 "minimum": 0,
                 "maximum": 10
-              },
-              "propertyNames": {
-                "maxLength": 100
               }
             },
             "pain": {
+              "maxItems": 30,
               "type": "array",
               "items": {
                 "type": "object",
@@ -1652,8 +1677,7 @@ Record observed sleep/health with source provenance, subjective daily recovery, 
                   "location"
                 ],
                 "additionalProperties": false
-              },
-              "maxItems": 30
+              }
             },
             "hydration": {
               "type": "string",
@@ -1677,6 +1701,7 @@ Record observed sleep/health with source provenance, subjective daily recovery, 
               "type": "boolean"
             },
             "confounders": {
+              "maxItems": 6,
               "type": "array",
               "items": {
                 "type": "string",
@@ -1688,8 +1713,7 @@ Record observed sleep/health with source provenance, subjective daily recovery, 
                   "STRESSFUL_EVENT",
                   "OTHER"
                 ]
-              },
-              "maxItems": 6
+              }
             },
             "cyclePhase": {
               "type": "string",
@@ -1715,7 +1739,8 @@ Record observed sleep/health with source provenance, subjective daily recovery, 
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -1777,7 +1802,8 @@ Record observed sleep/health with source provenance, subjective daily recovery, 
             },
             "performedAt": {
               "type": "string",
-              "format": "date-time"
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$"
             },
             "protocol": {
               "type": "string",
@@ -1857,7 +1883,8 @@ Record observed sleep/health with source provenance, subjective daily recovery, 
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -1867,7 +1894,6 @@ Record observed sleep/health with source provenance, subjective daily recovery, 
       ]
     }
   ],
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "action": {},
@@ -1884,6 +1910,7 @@ Read programs, adaptations or reusable templates; update supported profile field
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "anyOf": [
     {
       "type": "object",
@@ -1966,27 +1993,28 @@ Read programs, adaptations or reusable templates; update supported profile field
               "type": "boolean"
             },
             "goals": {
+              "maxItems": 20,
               "type": "array",
               "items": {
                 "type": "string",
                 "minLength": 1,
                 "maxLength": 500
-              },
-              "maxItems": 20
+              }
             },
             "trainingHistory": {
               "type": "string",
               "maxLength": 2000
             },
             "equipment": {
+              "maxItems": 50,
               "type": "array",
               "items": {
                 "type": "string",
                 "maxLength": 100
-              },
-              "maxItems": 50
+              }
             },
             "availableDays": {
+              "maxItems": 7,
               "type": "array",
               "items": {
                 "type": "string",
@@ -1999,8 +2027,7 @@ Read programs, adaptations or reusable templates; update supported profile field
                   "SATURDAY",
                   "SUNDAY"
                 ]
-              },
-              "maxItems": 7
+              }
             },
             "sessionMinutes": {
               "type": "integer",
@@ -2025,7 +2052,8 @@ Read programs, adaptations or reusable templates; update supported profile field
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -2050,7 +2078,8 @@ Read programs, adaptations or reusable templates; update supported profile field
             },
             "expectedVersion": {
               "type": "integer",
-              "minimum": 0
+              "minimum": 0,
+              "maximum": 9007199254740991
             },
             "name": {
               "type": "string",
@@ -2162,7 +2191,8 @@ Read programs, adaptations or reusable templates; update supported profile field
                 },
                 "expectedVersion": {
                   "type": "integer",
-                  "minimum": 0
+                  "minimum": 0,
+                  "maximum": 9007199254740991
                 },
                 "reason": {
                   "type": "string",
@@ -2170,6 +2200,8 @@ Read programs, adaptations or reusable templates; update supported profile field
                   "maxLength": 2000
                 },
                 "workouts": {
+                  "minItems": 1,
+                  "maxItems": 7,
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -2196,6 +2228,8 @@ Read programs, adaptations or reusable templates; update supported profile field
                         ]
                       },
                       "prescriptions": {
+                        "minItems": 1,
+                        "maxItems": 20,
                         "type": "array",
                         "items": {
                           "type": "object",
@@ -2298,9 +2332,7 @@ Read programs, adaptations or reusable templates; update supported profile field
                             "restSeconds"
                           ],
                           "additionalProperties": false
-                        },
-                        "minItems": 1,
-                        "maxItems": 20
+                        }
                       }
                     },
                     "required": [
@@ -2310,11 +2342,10 @@ Read programs, adaptations or reusable templates; update supported profile field
                       "prescriptions"
                     ],
                     "additionalProperties": false
-                  },
-                  "minItems": 1,
-                  "maxItems": 7
+                  }
                 },
                 "plannedRuns": {
+                  "maxItems": 14,
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -2367,8 +2398,7 @@ Read programs, adaptations or reusable templates; update supported profile field
                       "type"
                     ],
                     "additionalProperties": false
-                  },
-                  "maxItems": 14
+                  }
                 }
               },
               "required": [
@@ -2393,7 +2423,8 @@ Read programs, adaptations or reusable templates; update supported profile field
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -2517,7 +2548,8 @@ Read programs, adaptations or reusable templates; update supported profile field
                 },
                 "expectedVersion": {
                   "type": "integer",
-                  "minimum": 0
+                  "minimum": 0,
+                  "maximum": 9007199254740991
                 },
                 "reason": {
                   "type": "string",
@@ -2525,6 +2557,8 @@ Read programs, adaptations or reusable templates; update supported profile field
                   "maxLength": 2000
                 },
                 "workouts": {
+                  "minItems": 1,
+                  "maxItems": 7,
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -2551,6 +2585,8 @@ Read programs, adaptations or reusable templates; update supported profile field
                         ]
                       },
                       "prescriptions": {
+                        "minItems": 1,
+                        "maxItems": 20,
                         "type": "array",
                         "items": {
                           "type": "object",
@@ -2653,9 +2689,7 @@ Read programs, adaptations or reusable templates; update supported profile field
                             "restSeconds"
                           ],
                           "additionalProperties": false
-                        },
-                        "minItems": 1,
-                        "maxItems": 20
+                        }
                       }
                     },
                     "required": [
@@ -2665,11 +2699,10 @@ Read programs, adaptations or reusable templates; update supported profile field
                       "prescriptions"
                     ],
                     "additionalProperties": false
-                  },
-                  "minItems": 1,
-                  "maxItems": 7
+                  }
                 },
                 "plannedRuns": {
+                  "maxItems": 14,
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -2722,8 +2755,7 @@ Read programs, adaptations or reusable templates; update supported profile field
                       "type"
                     ],
                     "additionalProperties": false
-                  },
-                  "maxItems": 14
+                  }
                 }
               },
               "required": [
@@ -2751,7 +2783,8 @@ Read programs, adaptations or reusable templates; update supported profile field
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -2872,7 +2905,8 @@ Read programs, adaptations or reusable templates; update supported profile field
             },
             "expectedVersion": {
               "type": "integer",
-              "minimum": 0
+              "minimum": 0,
+              "maximum": 9007199254740991
             },
             "reason": {
               "type": "string",
@@ -2880,6 +2914,8 @@ Read programs, adaptations or reusable templates; update supported profile field
               "maxLength": 2000
             },
             "workouts": {
+              "minItems": 1,
+              "maxItems": 7,
               "type": "array",
               "items": {
                 "type": "object",
@@ -2906,6 +2942,8 @@ Read programs, adaptations or reusable templates; update supported profile field
                     ]
                   },
                   "prescriptions": {
+                    "minItems": 1,
+                    "maxItems": 20,
                     "type": "array",
                     "items": {
                       "type": "object",
@@ -3008,9 +3046,7 @@ Read programs, adaptations or reusable templates; update supported profile field
                         "restSeconds"
                       ],
                       "additionalProperties": false
-                    },
-                    "minItems": 1,
-                    "maxItems": 20
+                    }
                   }
                 },
                 "required": [
@@ -3020,11 +3056,10 @@ Read programs, adaptations or reusable templates; update supported profile field
                   "prescriptions"
                 ],
                 "additionalProperties": false
-              },
-              "minItems": 1,
-              "maxItems": 7
+              }
             },
             "plannedRuns": {
+              "maxItems": 14,
               "type": "array",
               "items": {
                 "type": "object",
@@ -3077,8 +3112,7 @@ Read programs, adaptations or reusable templates; update supported profile field
                   "type"
                 ],
                 "additionalProperties": false
-              },
-              "maxItems": 14
+              }
             }
           },
           "required": [
@@ -3094,7 +3128,8 @@ Read programs, adaptations or reusable templates; update supported profile field
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -3104,7 +3139,6 @@ Read programs, adaptations or reusable templates; update supported profile field
       ]
     }
   ],
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "action": {},
@@ -3121,6 +3155,7 @@ Read the coach's consented roster, athlete sharing/proposals, or a roster athlet
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "anyOf": [
     {
       "type": "object",
@@ -3185,7 +3220,6 @@ Read the coach's consented roster, athlete sharing/proposals, or a roster athlet
       ]
     }
   ],
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "action": {},
@@ -3201,6 +3235,7 @@ Send a program proposal for a consenting client to approve in the portal, or rec
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "anyOf": [
     {
       "type": "object",
@@ -3326,7 +3361,8 @@ Send a program proposal for a consenting client to approve in the portal, or rec
                 },
                 "expectedVersion": {
                   "type": "integer",
-                  "minimum": 0
+                  "minimum": 0,
+                  "maximum": 9007199254740991
                 },
                 "reason": {
                   "type": "string",
@@ -3334,6 +3370,8 @@ Send a program proposal for a consenting client to approve in the portal, or rec
                   "maxLength": 2000
                 },
                 "workouts": {
+                  "minItems": 1,
+                  "maxItems": 7,
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -3360,6 +3398,8 @@ Send a program proposal for a consenting client to approve in the portal, or rec
                         ]
                       },
                       "prescriptions": {
+                        "minItems": 1,
+                        "maxItems": 20,
                         "type": "array",
                         "items": {
                           "type": "object",
@@ -3462,9 +3502,7 @@ Send a program proposal for a consenting client to approve in the portal, or rec
                             "restSeconds"
                           ],
                           "additionalProperties": false
-                        },
-                        "minItems": 1,
-                        "maxItems": 20
+                        }
                       }
                     },
                     "required": [
@@ -3474,11 +3512,10 @@ Send a program proposal for a consenting client to approve in the portal, or rec
                       "prescriptions"
                     ],
                     "additionalProperties": false
-                  },
-                  "minItems": 1,
-                  "maxItems": 7
+                  }
                 },
                 "plannedRuns": {
+                  "maxItems": 14,
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -3531,8 +3568,7 @@ Send a program proposal for a consenting client to approve in the portal, or rec
                       "type"
                     ],
                     "additionalProperties": false
-                  },
-                  "maxItems": 14
+                  }
                 }
               },
               "required": [
@@ -3556,7 +3592,8 @@ Send a program proposal for a consenting client to approve in the portal, or rec
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -3593,7 +3630,8 @@ Send a program proposal for a consenting client to approve in the portal, or rec
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -3603,7 +3641,6 @@ Send a program proposal for a consenting client to approve in the portal, or rec
       ]
     }
   ],
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "action": {},
@@ -3620,6 +3657,7 @@ Read your Performance catalog, pinned enrollments, comparable assessment history
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "anyOf": [
     {
       "type": "object",
@@ -3656,7 +3694,8 @@ Read your Performance catalog, pinned enrollments, comparable assessment history
             },
             "version": {
               "type": "integer",
-              "exclusiveMinimum": 0
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
             }
           },
           "required": [
@@ -3844,7 +3883,6 @@ Read your Performance catalog, pinned enrollments, comparable assessment history
       ]
     }
   ],
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "action": {},
@@ -3860,6 +3898,7 @@ Enroll in a specific reviewed Performance program, record a reported completed s
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "anyOf": [
     {
       "type": "object",
@@ -3878,26 +3917,30 @@ Enroll in a specific reviewed Performance program, record a reported completed s
             },
             "templateVersion": {
               "type": "integer",
-              "exclusiveMinimum": 0
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
             },
             "startDate": {
               "type": "string",
-              "format": "date"
+              "format": "date",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))$"
             },
             "acknowledgeSafety": {
               "type": "boolean",
               "const": true
             },
             "acknowledgedPrerequisiteIds": {
+              "maxItems": 20,
               "type": "array",
               "items": {
                 "type": "string",
                 "minLength": 1,
                 "maxLength": 100
-              },
-              "maxItems": 20
+              }
             },
             "preferredDays": {
+              "minItems": 1,
+              "maxItems": 7,
               "type": "array",
               "items": {
                 "type": "string",
@@ -3910,9 +3953,7 @@ Enroll in a specific reviewed Performance program, record a reported completed s
                   "SATURDAY",
                   "SUNDAY"
                 ]
-              },
-              "minItems": 1,
-              "maxItems": 7
+              }
             }
           },
           "required": [
@@ -3927,7 +3968,8 @@ Enroll in a specific reviewed Performance program, record a reported completed s
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -3958,7 +4000,8 @@ Enroll in a specific reviewed Performance program, record a reported completed s
             },
             "completedAt": {
               "type": "string",
-              "format": "date-time"
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
             },
             "sessionRpe": {
               "type": "number",
@@ -3972,7 +4015,8 @@ Enroll in a specific reviewed Performance program, record a reported completed s
             },
             "expectedVersion": {
               "type": "integer",
-              "exclusiveMinimum": 0
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
             }
           },
           "required": [
@@ -3985,7 +4029,8 @@ Enroll in a specific reviewed Performance program, record a reported completed s
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -4011,7 +4056,8 @@ Enroll in a specific reviewed Performance program, record a reported completed s
             },
             "expectedVersion": {
               "type": "integer",
-              "exclusiveMinimum": 0
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
             }
           },
           "required": [
@@ -4022,7 +4068,8 @@ Enroll in a specific reviewed Performance program, record a reported completed s
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -4062,7 +4109,8 @@ Enroll in a specific reviewed Performance program, record a reported completed s
             },
             "performedAt": {
               "type": "string",
-              "format": "date-time"
+              "format": "date-time",
+              "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
             },
             "method": {
               "type": "string",
@@ -4087,7 +4135,8 @@ Enroll in a specific reviewed Performance program, record a reported completed s
         },
         "idempotencyKey": {
           "type": "string",
-          "format": "uuid"
+          "format": "uuid",
+          "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})$"
         }
       },
       "required": [
@@ -4097,7 +4146,6 @@ Enroll in a specific reviewed Performance program, record a reported completed s
       ]
     }
   ],
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "action": {},
@@ -4114,6 +4162,7 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "anyOf": [
     {
       "type": "object",
@@ -4126,6 +4175,8 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
           "type": "object",
           "properties": {
             "exercises": {
+              "minItems": 1,
+              "maxItems": 12,
               "type": "array",
               "items": {
                 "type": "object",
@@ -4194,9 +4245,7 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                   "equipment"
                 ],
                 "additionalProperties": false
-              },
-              "minItems": 1,
-              "maxItems": 12
+              }
             }
           },
           "required": [
@@ -4251,6 +4300,8 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                   "maxLength": 200
                 },
                 "exercises": {
+                  "minItems": 1,
+                  "maxItems": 12,
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -4322,6 +4373,7 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                         "additionalProperties": false
                       },
                       "attempts": {
+                        "maxItems": 6,
                         "type": "array",
                         "items": {
                           "type": "object",
@@ -4337,13 +4389,27 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                               "maximum": 10
                             },
                             "reserve": {
-                              "type": "number",
-                              "enum": [
-                                0,
-                                1,
-                                2,
-                                3,
-                                4
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "const": 0
+                                },
+                                {
+                                  "type": "number",
+                                  "const": 1
+                                },
+                                {
+                                  "type": "number",
+                                  "const": 2
+                                },
+                                {
+                                  "type": "number",
+                                  "const": 3
+                                },
+                                {
+                                  "type": "number",
+                                  "const": 4
+                                }
                               ]
                             },
                             "pain": {
@@ -4378,8 +4444,7 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                             "e1rmLb"
                           ],
                           "additionalProperties": false
-                        },
-                        "maxItems": 6
+                        }
                       },
                       "status": {
                         "type": "string",
@@ -4425,9 +4490,7 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                       "reason"
                     ],
                     "additionalProperties": false
-                  },
-                  "minItems": 1,
-                  "maxItems": 12
+                  }
                 }
               },
               "required": [
@@ -4447,13 +4510,27 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                   "maximum": 10
                 },
                 "reserve": {
-                  "type": "number",
-                  "enum": [
-                    0,
-                    1,
-                    2,
-                    3,
-                    4
+                  "anyOf": [
+                    {
+                      "type": "number",
+                      "const": 0
+                    },
+                    {
+                      "type": "number",
+                      "const": 1
+                    },
+                    {
+                      "type": "number",
+                      "const": 2
+                    },
+                    {
+                      "type": "number",
+                      "const": 3
+                    },
+                    {
+                      "type": "number",
+                      "const": 4
+                    }
                   ]
                 },
                 "pain": {
@@ -4525,6 +4602,8 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                   "maxLength": 200
                 },
                 "exercises": {
+                  "minItems": 1,
+                  "maxItems": 12,
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -4596,6 +4675,7 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                         "additionalProperties": false
                       },
                       "attempts": {
+                        "maxItems": 6,
                         "type": "array",
                         "items": {
                           "type": "object",
@@ -4611,13 +4691,27 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                               "maximum": 10
                             },
                             "reserve": {
-                              "type": "number",
-                              "enum": [
-                                0,
-                                1,
-                                2,
-                                3,
-                                4
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "const": 0
+                                },
+                                {
+                                  "type": "number",
+                                  "const": 1
+                                },
+                                {
+                                  "type": "number",
+                                  "const": 2
+                                },
+                                {
+                                  "type": "number",
+                                  "const": 3
+                                },
+                                {
+                                  "type": "number",
+                                  "const": 4
+                                }
                               ]
                             },
                             "pain": {
@@ -4652,8 +4746,7 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                             "e1rmLb"
                           ],
                           "additionalProperties": false
-                        },
-                        "maxItems": 6
+                        }
                       },
                       "status": {
                         "type": "string",
@@ -4699,9 +4792,7 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                       "reason"
                     ],
                     "additionalProperties": false
-                  },
-                  "minItems": 1,
-                  "maxItems": 12
+                  }
                 }
               },
               "required": [
@@ -4765,6 +4856,8 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                   "maxLength": 200
                 },
                 "exercises": {
+                  "minItems": 1,
+                  "maxItems": 12,
                   "type": "array",
                   "items": {
                     "type": "object",
@@ -4836,6 +4929,7 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                         "additionalProperties": false
                       },
                       "attempts": {
+                        "maxItems": 6,
                         "type": "array",
                         "items": {
                           "type": "object",
@@ -4851,13 +4945,27 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                               "maximum": 10
                             },
                             "reserve": {
-                              "type": "number",
-                              "enum": [
-                                0,
-                                1,
-                                2,
-                                3,
-                                4
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "const": 0
+                                },
+                                {
+                                  "type": "number",
+                                  "const": 1
+                                },
+                                {
+                                  "type": "number",
+                                  "const": 2
+                                },
+                                {
+                                  "type": "number",
+                                  "const": 3
+                                },
+                                {
+                                  "type": "number",
+                                  "const": 4
+                                }
                               ]
                             },
                             "pain": {
@@ -4892,8 +5000,7 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                             "e1rmLb"
                           ],
                           "additionalProperties": false
-                        },
-                        "maxItems": 6
+                        }
                       },
                       "status": {
                         "type": "string",
@@ -4939,9 +5046,7 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                       "reason"
                     ],
                     "additionalProperties": false
-                  },
-                  "minItems": 1,
-                  "maxItems": 12
+                  }
                 }
               },
               "required": [
@@ -4990,7 +5095,6 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
       ]
     }
   ],
-  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "action": {},
@@ -5006,6 +5110,7 @@ Get the exact AdaptiveBase page for adaptive program review, route planning, Fri
 
 ```json
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "flow": {
@@ -5040,7 +5145,6 @@ Get the exact AdaptiveBase page for adaptive program review, route planning, Fri
   "required": [
     "flow"
   ],
-  "additionalProperties": false,
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "additionalProperties": false
 }
 ```
