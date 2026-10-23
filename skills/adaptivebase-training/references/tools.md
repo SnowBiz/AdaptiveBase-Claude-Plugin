@@ -218,8 +218,7 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -245,8 +244,7 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -264,8 +262,7 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -333,8 +330,7 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -402,8 +398,7 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -471,8 +466,7 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -557,12 +551,16 @@ Discover reviewed exercises and canonical IDs, inspect requirements, find substi
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     }
   ],
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object"
+  "type": "object",
+  "properties": {
+    "action": {},
+    "input": {}
+  },
+  "additionalProperties": false
 }
 ```
 
@@ -589,8 +587,7 @@ Read owned gym locations, inspect a private photo from their photo IDs, or match
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -616,8 +613,7 @@ Read owned gym locations, inspect a private photo from their photo IDs, or match
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -640,12 +636,16 @@ Read owned gym locations, inspect a private photo from their photo IDs, or match
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     }
   ],
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object"
+  "type": "object",
+  "properties": {
+    "action": {},
+    "input": {}
+  },
+  "additionalProperties": false
 }
 ```
 
@@ -732,8 +732,7 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -773,8 +772,7 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -874,8 +872,7 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -966,12 +963,17 @@ Create/edit a home or travel gym, select agreed access, draft an inventory, or c
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     }
   ],
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object"
+  "type": "object",
+  "properties": {
+    "action": {},
+    "input": {},
+    "idempotencyKey": {}
+  },
+  "additionalProperties": false
 }
 ```
 
@@ -1020,8 +1022,7 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -1153,8 +1154,7 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -1190,8 +1190,7 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -1232,8 +1231,7 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -1345,8 +1343,7 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -1413,12 +1410,17 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     }
   ],
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object"
+  "type": "object",
+  "properties": {
+    "action": {},
+    "input": {},
+    "idempotencyKey": {}
+  },
+  "additionalProperties": false
 }
 ```
 
@@ -1573,8 +1575,7 @@ Record observed sleep/health with source provenance, subjective daily recovery, 
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -1721,8 +1722,7 @@ Record observed sleep/health with source provenance, subjective daily recovery, 
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -1864,12 +1864,17 @@ Record observed sleep/health with source provenance, subjective daily recovery, 
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     }
   ],
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object"
+  "type": "object",
+  "properties": {
+    "action": {},
+    "input": {},
+    "idempotencyKey": {}
+  },
+  "additionalProperties": false
 }
 ```
 
@@ -1891,13 +1896,13 @@ Read programs, adaptations or reusable templates; update supported profile field
           "type": "object",
           "properties": {},
           "additionalProperties": false
-        }
+        },
+        "idempotencyKey": false
       },
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -1910,13 +1915,13 @@ Read programs, adaptations or reusable templates; update supported profile field
           "type": "object",
           "properties": {},
           "additionalProperties": false
-        }
+        },
+        "idempotencyKey": false
       },
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -1929,13 +1934,13 @@ Read programs, adaptations or reusable templates; update supported profile field
           "type": "object",
           "properties": {},
           "additionalProperties": false
-        }
+        },
+        "idempotencyKey": false
       },
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -2027,8 +2032,7 @@ Read programs, adaptations or reusable templates; update supported profile field
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -2396,8 +2400,7 @@ Read programs, adaptations or reusable templates; update supported profile field
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -2755,8 +2758,7 @@ Read programs, adaptations or reusable templates; update supported profile field
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -3099,12 +3101,17 @@ Read programs, adaptations or reusable templates; update supported profile field
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     }
   ],
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object"
+  "type": "object",
+  "properties": {
+    "action": {},
+    "input": {},
+    "idempotencyKey": {}
+  },
+  "additionalProperties": false
 }
 ```
 
@@ -3131,8 +3138,7 @@ Read the coach's consented roster, athlete sharing/proposals, or a roster athlet
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -3150,8 +3156,7 @@ Read the coach's consented roster, athlete sharing/proposals, or a roster athlet
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -3177,12 +3182,16 @@ Read the coach's consented roster, athlete sharing/proposals, or a roster athlet
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     }
   ],
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object"
+  "type": "object",
+  "properties": {
+    "action": {},
+    "input": {}
+  },
+  "additionalProperties": false
 }
 ```
 
@@ -3554,8 +3563,7 @@ Send a program proposal for a consenting client to approve in the portal, or rec
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -3592,12 +3600,17 @@ Send a program proposal for a consenting client to approve in the portal, or rec
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     }
   ],
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object"
+  "type": "object",
+  "properties": {
+    "action": {},
+    "input": {},
+    "idempotencyKey": {}
+  },
+  "additionalProperties": false
 }
 ```
 
@@ -3624,8 +3637,7 @@ Read your Performance catalog, pinned enrollments, comparable assessment history
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -3656,8 +3668,7 @@ Read your Performance catalog, pinned enrollments, comparable assessment history
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -3689,8 +3700,7 @@ Read your Performance catalog, pinned enrollments, comparable assessment history
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -3717,8 +3727,7 @@ Read your Performance catalog, pinned enrollments, comparable assessment history
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -3736,8 +3745,7 @@ Read your Performance catalog, pinned enrollments, comparable assessment history
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -3769,8 +3777,7 @@ Read your Performance catalog, pinned enrollments, comparable assessment history
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -3788,8 +3795,7 @@ Read your Performance catalog, pinned enrollments, comparable assessment history
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -3807,8 +3813,7 @@ Read your Performance catalog, pinned enrollments, comparable assessment history
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -3836,12 +3841,16 @@ Read your Performance catalog, pinned enrollments, comparable assessment history
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     }
   ],
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object"
+  "type": "object",
+  "properties": {
+    "action": {},
+    "input": {}
+  },
+  "additionalProperties": false
 }
 ```
 
@@ -3925,8 +3934,7 @@ Enroll in a specific reviewed Performance program, record a reported completed s
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -3984,8 +3992,7 @@ Enroll in a specific reviewed Performance program, record a reported completed s
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -4022,8 +4029,7 @@ Enroll in a specific reviewed Performance program, record a reported completed s
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -4088,12 +4094,17 @@ Enroll in a specific reviewed Performance program, record a reported completed s
         "action",
         "input",
         "idempotencyKey"
-      ],
-      "additionalProperties": false
+      ]
     }
   ],
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object"
+  "type": "object",
+  "properties": {
+    "action": {},
+    "input": {},
+    "idempotencyKey": {}
+  },
+  "additionalProperties": false
 }
 ```
 
@@ -4197,8 +4208,7 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -4472,8 +4482,7 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -4713,8 +4722,7 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     },
     {
       "type": "object",
@@ -4979,12 +4987,16 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
       "required": [
         "action",
         "input"
-      ],
-      "additionalProperties": false
+      ]
     }
   ],
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object"
+  "type": "object",
+  "properties": {
+    "action": {},
+    "input": {}
+  },
+  "additionalProperties": false
 }
 ```
 

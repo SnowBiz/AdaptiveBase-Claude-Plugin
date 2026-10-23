@@ -6,8 +6,18 @@ description: Use when a connected AdaptiveBase athlete or coach wants to begin t
 # AdaptiveBase training
 
 AdaptiveBase stores authoritative facts; the AI supplies conversation and reasoning.
-Retrieve current records instead of relying on conversation memory. Only a successful
+For supported training tasks, retrieve current records instead of relying on conversation memory. Only a successful
 result proves a change. Never claim an attempted or failed write was saved.
+
+## Check scope before account access
+
+Medical diagnosis or treatment, direct browser Apple Health access without an
+integration, equipment purchases and trainer bookings are unsupported. Explain
+the limit without calling training tools or fetching account records. Do not
+present training/recovery history or absence of reported pain as an injury
+assessment. Direct diagnosis/treatment requests to a qualified professional.
+Do not browse unrelated connected health data to answer these requests. Continue
+with account discovery only when the user asks for a supported training task.
 
 ## Connect and discover
 
