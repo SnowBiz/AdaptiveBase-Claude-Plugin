@@ -1,6 +1,6 @@
 ---
 name: adaptivebase-training
-description: Use when a connected AdaptiveBase athlete or coach wants to begin training, establish baselines, log completed sets, review progress, check daily sleep and recovery, identify gym equipment, adapt a program, or propose training for a consenting client. Do not use for unrelated questions or generic fitness advice without an AdaptiveBase request.
+description: Use when a connected AdaptiveBase athlete or coach wants to begin training, establish baselines, log completed sets, review progress, check daily sleep and recovery, identify gym equipment, adapt a program, or follow Performance programs, review Base Points or new first-party flows, or propose training for a consenting client. Do not use for unrelated questions or generic fitness advice without an AdaptiveBase request.
 ---
 
 # AdaptiveBase training
@@ -11,7 +11,7 @@ result proves a change. Never claim an attempted or failed write was saved.
 
 ## Connect and discover
 
-Discover the 15 plugin tools and exact schemas. Use the names in the bundled
+Discover the 19 plugin tools and exact schemas. Use the names in the bundled
 [tool contracts](references/tools.md); the plugin endpoint does not use the native
 AgentCore prefix. Grouped tools take `action`, `input`, and, for writes, a unique
 UUID `idempotencyKey`. Live discovery wins over bundled contracts.
@@ -87,3 +87,43 @@ Read [coach workflows](references/coaching.md) for client work. Server-side cons
 is required even for administrators. `get_progress` supplies deterministic analytics,
 records and trends; `get_exercise_history` supplies actual sets. Use returned metrics,
 not invented percentages or graphs. Estimated 1RM is not a measured maximum.
+
+## Performance, guided strength and Your Base
+
+Use `get_training_features` to read the Performance catalog, immutable full program
+version, enrollments, definitions and method-grouped result history. Read the
+prerequisites, safety guidance and dosing before discussing enrollment. Ask the
+athlete to acknowledge every prerequisite and safety guidance, the pinned version,
+start date and preferred weekdays. Only then use `manage_performance` action
+`enroll` with the returned prerequisite IDs and `acknowledgeSafety:true`. These
+are self-attestations, never medical clearance.
+
+Record a Performance session as complete only after the athlete reports it. Read
+the current enrollment version first; ask for RPE if they want to include it. Link
+a native session only if a retrieved completed session actually exists. Withdrawal
+also needs explicit agreement and the current version. Record assessment results
+with reported values, units, date and actual timing method. Compare stopwatch,
+timing-gate and video attempts only within their returned groups. Manual entries
+never become verified wearable evidence.
+
+For guided strength, discover the canonical exercise and actual equipment/load
+increments, then use `assess_strength` start/attempt/skip/proposals. Ask every
+attempt's repetitions, reserve, pain and form concerns; stop for pain or form
+breakdown. Carry the returned state without changing its policy or inventing
+attempts. Draft results are self-reported estimates, not saved baselines, programs
+or workouts. Review and explicit agreement are required before any separate save.
+
+Base Points policy describes levels and caps. Earned state/history require the
+athlete's existing AI sharing preference; when sharing is absent, use the returned
+Connected devices and Your Base links. Never change privacy settings to obtain data.
+
+## First-party flows
+
+Use `open_training_flow` for adaptive Program recommendations, strength baseline
+review, Performance, achievements, running routes, Friends, Community, connected
+devices/AI sharing, equipment, profile, coaching consent or account setup. Return
+the exact URL and describe the action the athlete must take there. A link performs
+no action. Do not claim to apply an adaptive recommendation, pair a watch, record
+GPS, verify a phone number, send a friend request, grant consent, purchase a
+membership or expose private social/contact data through these tools. Full-evidence
+first-party decision engines are not exposed through this connector.

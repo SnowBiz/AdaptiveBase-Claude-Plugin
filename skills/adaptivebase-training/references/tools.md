@@ -1,7 +1,7 @@
 # Plugin tool contracts
 
 Generated from src/plugin/tools.ts; run npm run plugin:sync after changes.
-The plugin endpoint exposes these 15 names without the AgentCore prefix.
+The plugin endpoint exposes these 19 names without the AgentCore prefix.
 Grouped tools require action and input. Writes also require a unique UUID
 idempotencyKey, reused with identical arguments when retrying. Native schemas
 remain strict; use discovered schemas for required facts rather than guessing.
@@ -3598,5 +3598,1426 @@ Send a program proposal for a consenting client to approve in the portal, or rec
   ],
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object"
+}
+```
+
+## get_training_features
+
+Read your Performance catalog, pinned enrollments, comparable assessment history, or Base Points policy/history. Device-derived earned points require existing AI sharing consent; an unshared account receives a first-party link without private activity. No user IDs, raw HealthKit data or GPS routes are accepted or returned.
+
+```json
+{
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "performance_catalog"
+        },
+        "input": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "action",
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "performance_program"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "templateId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "version": {
+              "type": "integer",
+              "exclusiveMinimum": 0
+            }
+          },
+          "required": [
+            "templateId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "action",
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "performance_enrollments"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "ACTIVE",
+                "WITHDRAWN",
+                "COMPLETED"
+              ]
+            },
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "action",
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "performance_enrollment"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "enrollmentId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            }
+          },
+          "required": [
+            "enrollmentId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "action",
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "performance_assessments"
+        },
+        "input": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "action",
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "performance_history"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "assessmentId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            }
+          },
+          "required": [
+            "assessmentId"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "action",
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "base_points_policy"
+        },
+        "input": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "action",
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "base_points"
+        },
+        "input": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "action",
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "base_points_history"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            },
+            "cursor": {
+              "type": "string",
+              "maxLength": 2000
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "action",
+        "input"
+      ],
+      "additionalProperties": false
+    }
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object"
+}
+```
+
+## manage_performance
+
+Enroll in a specific reviewed Performance program, record a reported completed session/RPE, withdraw an enrollment, or record a reported speed/agility/jump result after explicit agreement. Read prerequisites, dosing and safety first; enrollments pin the template version and writes need current enrollment versions. A native session may be linked only if it actually exists and is completed. Never invent completion, timing method or verified wearable evidence. Reuse the UUID key only for identical retries.
+
+```json
+{
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "enroll"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "templateId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "templateVersion": {
+              "type": "integer",
+              "exclusiveMinimum": 0
+            },
+            "startDate": {
+              "type": "string",
+              "format": "date"
+            },
+            "acknowledgeSafety": {
+              "type": "boolean",
+              "const": true
+            },
+            "acknowledgedPrerequisiteIds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 100
+              },
+              "maxItems": 20
+            },
+            "preferredDays": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "MONDAY",
+                  "TUESDAY",
+                  "WEDNESDAY",
+                  "THURSDAY",
+                  "FRIDAY",
+                  "SATURDAY",
+                  "SUNDAY"
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 7
+            }
+          },
+          "required": [
+            "templateId",
+            "templateVersion",
+            "startDate",
+            "acknowledgeSafety",
+            "acknowledgedPrerequisiteIds",
+            "preferredDays"
+          ],
+          "additionalProperties": false
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": [
+        "action",
+        "input",
+        "idempotencyKey"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "complete"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "enrollmentId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "index": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 200
+            },
+            "completedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "sessionRpe": {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 10
+            },
+            "sessionId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "expectedVersion": {
+              "type": "integer",
+              "exclusiveMinimum": 0
+            }
+          },
+          "required": [
+            "enrollmentId",
+            "index",
+            "completedAt",
+            "expectedVersion"
+          ],
+          "additionalProperties": false
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": [
+        "action",
+        "input",
+        "idempotencyKey"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "withdraw"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "enrollmentId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "expectedVersion": {
+              "type": "integer",
+              "exclusiveMinimum": 0
+            }
+          },
+          "required": [
+            "enrollmentId",
+            "expectedVersion"
+          ],
+          "additionalProperties": false
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": [
+        "action",
+        "input",
+        "idempotencyKey"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "assessment"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "assessmentId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "value": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "unit": {
+              "type": "string",
+              "enum": [
+                "s",
+                "cm",
+                "m",
+                "in",
+                "ft"
+              ]
+            },
+            "performedAt": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "method": {
+              "type": "string",
+              "enum": [
+                "STOPWATCH",
+                "TIMING_GATES",
+                "VIDEO"
+              ]
+            },
+            "notes": {
+              "type": "string",
+              "maxLength": 500
+            }
+          },
+          "required": [
+            "assessmentId",
+            "value",
+            "unit",
+            "performedAt"
+          ],
+          "additionalProperties": false
+        },
+        "idempotencyKey": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": [
+        "action",
+        "input",
+        "idempotencyKey"
+      ],
+      "additionalProperties": false
+    }
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object"
+}
+```
+
+## assess_strength
+
+Run a bounded, submaximal guided strength assessment from reported attempts and actual load increments. Discover canonical exercise IDs first. Ask for repetitions, reps in reserve (0–4), pain and form concerns; stop for pain/form concerns. State is client-carried and self-reported. Proposed working loads are estimates for review: this tool saves no baseline, changes no program and creates no workout or verified evidence.
+
+```json
+{
+  "anyOf": [
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "start"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "exercises": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "exerciseId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 100
+                  },
+                  "equipment": {
+                    "type": "object",
+                    "properties": {
+                      "incrementLb": {
+                        "type": "number",
+                        "minimum": 0.25,
+                        "maximum": 100
+                      },
+                      "baseLb": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 2000
+                      },
+                      "minLb": {
+                        "type": "number",
+                        "exclusiveMinimum": 0,
+                        "maximum": 2000
+                      },
+                      "maxLb": {
+                        "type": "number",
+                        "exclusiveMinimum": 0,
+                        "maximum": 2000
+                      }
+                    },
+                    "required": [
+                      "incrementLb"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "startLoadLb": {
+                    "anyOf": [
+                      {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 2000
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "knownE1rmLb": {
+                    "anyOf": [
+                      {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 2000
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "exerciseId",
+                  "equipment"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 12
+            }
+          },
+          "required": [
+            "exercises"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "action",
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "attempt"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "object",
+              "properties": {
+                "schema": {
+                  "type": "string",
+                  "const": "strength-assessment@1"
+                },
+                "policy": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "const": "strength-assessment-policy"
+                    },
+                    "version": {
+                      "type": "string",
+                      "const": "1"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "version"
+                  ],
+                  "additionalProperties": false
+                },
+                "assessmentId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "exercises": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "spec": {
+                        "type": "object",
+                        "properties": {
+                          "exerciseId": {
+                            "type": "string"
+                          },
+                          "equipment": {
+                            "type": "object",
+                            "properties": {
+                              "incrementLb": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              },
+                              "baseLb": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              },
+                              "minLb": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              },
+                              "maxLb": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              }
+                            },
+                            "required": [
+                              "incrementLb"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "startLoadLb": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "knownE1rmLb": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "exerciseId",
+                          "equipment"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "attempts": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "loadLb": {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 2000
+                            },
+                            "reps": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 10
+                            },
+                            "reserve": {
+                              "type": "number",
+                              "enum": [
+                                0,
+                                1,
+                                2,
+                                3,
+                                4
+                              ]
+                            },
+                            "pain": {
+                              "type": "boolean"
+                            },
+                            "formBreakdown": {
+                              "type": "boolean"
+                            },
+                            "lowerBound": {
+                              "type": "boolean"
+                            },
+                            "e1rmLb": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 20000
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "loadLb",
+                            "reps",
+                            "reserve",
+                            "pain",
+                            "formBreakdown",
+                            "lowerBound",
+                            "e1rmLb"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 6
+                      },
+                      "status": {
+                        "type": "string",
+                        "enum": [
+                          "IN_PROGRESS",
+                          "FOUND",
+                          "ESTIMATED",
+                          "LOWER_BOUND",
+                          "STOPPED_PAIN",
+                          "BELOW_MINIMUM_LOAD",
+                          "SKIPPED"
+                        ]
+                      },
+                      "nextLoadLb": {
+                        "anyOf": [
+                          {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 2000
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "reason": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "maxLength": 300
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "spec",
+                      "attempts",
+                      "status",
+                      "nextLoadLb",
+                      "reason"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 12
+                }
+              },
+              "required": [
+                "schema",
+                "policy",
+                "assessmentId",
+                "exercises"
+              ],
+              "additionalProperties": false
+            },
+            "attempt": {
+              "type": "object",
+              "properties": {
+                "reps": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10
+                },
+                "reserve": {
+                  "type": "number",
+                  "enum": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ]
+                },
+                "pain": {
+                  "type": "boolean"
+                },
+                "formBreakdown": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "reps",
+                "reserve",
+                "pain",
+                "formBreakdown"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "state",
+            "attempt"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "action",
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "skip"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "object",
+              "properties": {
+                "schema": {
+                  "type": "string",
+                  "const": "strength-assessment@1"
+                },
+                "policy": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "const": "strength-assessment-policy"
+                    },
+                    "version": {
+                      "type": "string",
+                      "const": "1"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "version"
+                  ],
+                  "additionalProperties": false
+                },
+                "assessmentId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "exercises": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "spec": {
+                        "type": "object",
+                        "properties": {
+                          "exerciseId": {
+                            "type": "string"
+                          },
+                          "equipment": {
+                            "type": "object",
+                            "properties": {
+                              "incrementLb": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              },
+                              "baseLb": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              },
+                              "minLb": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              },
+                              "maxLb": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              }
+                            },
+                            "required": [
+                              "incrementLb"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "startLoadLb": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "knownE1rmLb": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "exerciseId",
+                          "equipment"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "attempts": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "loadLb": {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 2000
+                            },
+                            "reps": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 10
+                            },
+                            "reserve": {
+                              "type": "number",
+                              "enum": [
+                                0,
+                                1,
+                                2,
+                                3,
+                                4
+                              ]
+                            },
+                            "pain": {
+                              "type": "boolean"
+                            },
+                            "formBreakdown": {
+                              "type": "boolean"
+                            },
+                            "lowerBound": {
+                              "type": "boolean"
+                            },
+                            "e1rmLb": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 20000
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "loadLb",
+                            "reps",
+                            "reserve",
+                            "pain",
+                            "formBreakdown",
+                            "lowerBound",
+                            "e1rmLb"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 6
+                      },
+                      "status": {
+                        "type": "string",
+                        "enum": [
+                          "IN_PROGRESS",
+                          "FOUND",
+                          "ESTIMATED",
+                          "LOWER_BOUND",
+                          "STOPPED_PAIN",
+                          "BELOW_MINIMUM_LOAD",
+                          "SKIPPED"
+                        ]
+                      },
+                      "nextLoadLb": {
+                        "anyOf": [
+                          {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 2000
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "reason": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "maxLength": 300
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "spec",
+                      "attempts",
+                      "status",
+                      "nextLoadLb",
+                      "reason"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 12
+                }
+              },
+              "required": [
+                "schema",
+                "policy",
+                "assessmentId",
+                "exercises"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "state"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "action",
+        "input"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "proposals"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "object",
+              "properties": {
+                "schema": {
+                  "type": "string",
+                  "const": "strength-assessment@1"
+                },
+                "policy": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "const": "strength-assessment-policy"
+                    },
+                    "version": {
+                      "type": "string",
+                      "const": "1"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "version"
+                  ],
+                  "additionalProperties": false
+                },
+                "assessmentId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "exercises": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "spec": {
+                        "type": "object",
+                        "properties": {
+                          "exerciseId": {
+                            "type": "string"
+                          },
+                          "equipment": {
+                            "type": "object",
+                            "properties": {
+                              "incrementLb": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              },
+                              "baseLb": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              },
+                              "minLb": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              },
+                              "maxLb": {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              }
+                            },
+                            "required": [
+                              "incrementLb"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "startLoadLb": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "knownE1rmLb": {
+                            "anyOf": [
+                              {
+                                "type": "number",
+                                "minimum": 0,
+                                "maximum": 2000
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "exerciseId",
+                          "equipment"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "attempts": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "loadLb": {
+                              "type": "number",
+                              "minimum": 0,
+                              "maximum": 2000
+                            },
+                            "reps": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 10
+                            },
+                            "reserve": {
+                              "type": "number",
+                              "enum": [
+                                0,
+                                1,
+                                2,
+                                3,
+                                4
+                              ]
+                            },
+                            "pain": {
+                              "type": "boolean"
+                            },
+                            "formBreakdown": {
+                              "type": "boolean"
+                            },
+                            "lowerBound": {
+                              "type": "boolean"
+                            },
+                            "e1rmLb": {
+                              "anyOf": [
+                                {
+                                  "type": "number",
+                                  "minimum": 0,
+                                  "maximum": 20000
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "loadLb",
+                            "reps",
+                            "reserve",
+                            "pain",
+                            "formBreakdown",
+                            "lowerBound",
+                            "e1rmLb"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 6
+                      },
+                      "status": {
+                        "type": "string",
+                        "enum": [
+                          "IN_PROGRESS",
+                          "FOUND",
+                          "ESTIMATED",
+                          "LOWER_BOUND",
+                          "STOPPED_PAIN",
+                          "BELOW_MINIMUM_LOAD",
+                          "SKIPPED"
+                        ]
+                      },
+                      "nextLoadLb": {
+                        "anyOf": [
+                          {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 2000
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "reason": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "maxLength": 300
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "spec",
+                      "attempts",
+                      "status",
+                      "nextLoadLb",
+                      "reason"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 12
+                }
+              },
+              "required": [
+                "schema",
+                "policy",
+                "assessmentId",
+                "exercises"
+              ],
+              "additionalProperties": false
+            },
+            "reps": {
+              "type": "object",
+              "properties": {
+                "min": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 30
+                },
+                "max": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 30
+                }
+              },
+              "required": [
+                "min",
+                "max"
+              ],
+              "additionalProperties": false
+            },
+            "targetRir": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 6
+            }
+          },
+          "required": [
+            "state"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "action",
+        "input"
+      ],
+      "additionalProperties": false
+    }
+  ],
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object"
+}
+```
+
+## open_training_flow
+
+Get the exact AdaptiveBase page for adaptive program review, route planning, Friends, Community, connected-device/AI sharing setup, profile, equipment, coaching consent, achievements or membership. These first-party flows require the athlete to act in AdaptiveBase. Returning a link does not perform an action, grant consent, send a friend request, verify a phone number, record GPS or purchase a membership.
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "flow": {
+      "type": "string",
+      "enum": [
+        "PROGRAM",
+        "GUIDED_ASSESSMENT",
+        "PERFORMANCE",
+        "ACHIEVEMENTS",
+        "RUNNING",
+        "FRIENDS",
+        "COMMUNITY",
+        "CONNECTED_DEVICES",
+        "EQUIPMENT",
+        "PROFILE",
+        "COACHING",
+        "ACCOUNT"
+      ]
+    }
+  },
+  "required": [
+    "flow"
+  ],
+  "additionalProperties": false,
+  "$schema": "http://json-schema.org/draft-07/schema#"
 }
 ```
