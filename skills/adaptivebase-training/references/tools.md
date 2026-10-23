@@ -4990,7 +4990,7 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
 
 ## open_training_flow
 
-Get the exact AdaptiveBase page for adaptive program review, route planning, Friends, Community, connected-device/AI sharing setup, profile, equipment, coaching consent, achievements or membership. These first-party flows require the athlete to act in AdaptiveBase. Returning a link does not perform an action, grant consent, send a friend request, verify a phone number, record GPS or purchase a membership.
+Get the exact AdaptiveBase page for adaptive program review, route planning, Friends, Community, connected-device/AI sharing setup, profile, equipment, coaching consent, achievements, family training, workout builder, journal/media, trainer website, developer tools or membership. These first-party flows require the athlete to act in AdaptiveBase. Returning a link does not perform an action, grant consent, send a friend request, verify a phone number, record GPS or purchase a membership.
 
 ```json
 {
@@ -5010,7 +5010,18 @@ Get the exact AdaptiveBase page for adaptive program review, route planning, Fri
         "EQUIPMENT",
         "PROFILE",
         "COACHING",
-        "ACCOUNT"
+        "ACCOUNT",
+        "FAMILY",
+        "INTELLIGENCE",
+        "MOBILITY",
+        "RECOVERY",
+        "WORKOUT_BUILDER",
+        "JOURNAL_MEDIA",
+        "COACH_WORKSPACE",
+        "TRAINER_WEBSITE",
+        "DEVELOPER_API",
+        "NOTIFICATIONS",
+        "ALL_TOOLS"
       ]
     }
   },

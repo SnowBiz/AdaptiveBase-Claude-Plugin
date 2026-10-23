@@ -121,7 +121,8 @@ Connected devices and Your Base links. Never change privacy settings to obtain d
 
 Use `open_training_flow` for adaptive Program recommendations, strength baseline
 review, Performance, achievements, running routes, Friends, Community, connected
-devices/AI sharing, equipment, profile, coaching consent or account setup. Return
+devices/AI sharing, equipment, profile, coaching consent, family training, workout builder, journal/media,
+trainer website, developer tools, notifications or account setup. Return
 the exact URL and describe the action the athlete must take there. A link performs
 no action. Do not claim to apply an adaptive recommendation, pair a watch, record
 GPS, verify a phone number, send a friend request, grant consent, purchase a
