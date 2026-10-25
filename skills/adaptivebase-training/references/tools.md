@@ -1233,8 +1233,7 @@ Start an agreed workout, log a reported set, finish an exercise/session after co
             }
           },
           "required": [
-            "sessionId",
-            "sessionRpe"
+            "sessionId"
           ],
           "additionalProperties": false
         },
