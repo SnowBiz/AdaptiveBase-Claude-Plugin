@@ -1,7 +1,7 @@
 {
   "name": "adaptivebase",
   "displayName": "AdaptiveBase",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "Fitness and workout tracking with AdaptiveBase: retrieve your program, log completed sets, review progress, record recovery and manage confirmed gym equipment. Coaches can propose programs to consenting athletes.",
   "author": {
     "name": "AdaptiveBase",

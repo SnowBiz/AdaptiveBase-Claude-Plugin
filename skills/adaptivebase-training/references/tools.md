@@ -2199,7 +2199,7 @@ Read programs, adaptations or reusable templates; update supported profile field
                   "maxLength": 2000
                 },
                 "workouts": {
-                  "minItems": 1,
+                  "minItems": 0,
                   "maxItems": 7,
                   "type": "array",
                   "items": {
@@ -2556,7 +2556,7 @@ Read programs, adaptations or reusable templates; update supported profile field
                   "maxLength": 2000
                 },
                 "workouts": {
-                  "minItems": 1,
+                  "minItems": 0,
                   "maxItems": 7,
                   "type": "array",
                   "items": {
@@ -2913,7 +2913,7 @@ Read programs, adaptations or reusable templates; update supported profile field
               "maxLength": 2000
             },
             "workouts": {
-              "minItems": 1,
+              "minItems": 0,
               "maxItems": 7,
               "type": "array",
               "items": {
@@ -3369,7 +3369,7 @@ Send a program proposal for a consenting client to approve in the portal, or rec
                   "maxLength": 2000
                 },
                 "workouts": {
-                  "minItems": 1,
+                  "minItems": 0,
                   "maxItems": 7,
                   "type": "array",
                   "items": {
@@ -4390,24 +4390,31 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                             "reserve": {
                               "anyOf": [
                                 {
-                                  "type": "number",
-                                  "const": 0
+                                  "anyOf": [
+                                    {
+                                      "type": "number",
+                                      "const": 0
+                                    },
+                                    {
+                                      "type": "number",
+                                      "const": 1
+                                    },
+                                    {
+                                      "type": "number",
+                                      "const": 2
+                                    },
+                                    {
+                                      "type": "number",
+                                      "const": 3
+                                    },
+                                    {
+                                      "type": "number",
+                                      "const": 4
+                                    }
+                                  ]
                                 },
                                 {
-                                  "type": "number",
-                                  "const": 1
-                                },
-                                {
-                                  "type": "number",
-                                  "const": 2
-                                },
-                                {
-                                  "type": "number",
-                                  "const": 3
-                                },
-                                {
-                                  "type": "number",
-                                  "const": 4
+                                  "type": "null"
                                 }
                               ]
                             },
@@ -4454,7 +4461,8 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                           "LOWER_BOUND",
                           "STOPPED_PAIN",
                           "BELOW_MINIMUM_LOAD",
-                          "SKIPPED"
+                          "SKIPPED",
+                          "EFFORT_UNKNOWN"
                         ]
                       },
                       "nextLoadLb": {
@@ -4692,24 +4700,31 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                             "reserve": {
                               "anyOf": [
                                 {
-                                  "type": "number",
-                                  "const": 0
+                                  "anyOf": [
+                                    {
+                                      "type": "number",
+                                      "const": 0
+                                    },
+                                    {
+                                      "type": "number",
+                                      "const": 1
+                                    },
+                                    {
+                                      "type": "number",
+                                      "const": 2
+                                    },
+                                    {
+                                      "type": "number",
+                                      "const": 3
+                                    },
+                                    {
+                                      "type": "number",
+                                      "const": 4
+                                    }
+                                  ]
                                 },
                                 {
-                                  "type": "number",
-                                  "const": 1
-                                },
-                                {
-                                  "type": "number",
-                                  "const": 2
-                                },
-                                {
-                                  "type": "number",
-                                  "const": 3
-                                },
-                                {
-                                  "type": "number",
-                                  "const": 4
+                                  "type": "null"
                                 }
                               ]
                             },
@@ -4756,7 +4771,8 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                           "LOWER_BOUND",
                           "STOPPED_PAIN",
                           "BELOW_MINIMUM_LOAD",
-                          "SKIPPED"
+                          "SKIPPED",
+                          "EFFORT_UNKNOWN"
                         ]
                       },
                       "nextLoadLb": {
@@ -4946,24 +4962,31 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                             "reserve": {
                               "anyOf": [
                                 {
-                                  "type": "number",
-                                  "const": 0
+                                  "anyOf": [
+                                    {
+                                      "type": "number",
+                                      "const": 0
+                                    },
+                                    {
+                                      "type": "number",
+                                      "const": 1
+                                    },
+                                    {
+                                      "type": "number",
+                                      "const": 2
+                                    },
+                                    {
+                                      "type": "number",
+                                      "const": 3
+                                    },
+                                    {
+                                      "type": "number",
+                                      "const": 4
+                                    }
+                                  ]
                                 },
                                 {
-                                  "type": "number",
-                                  "const": 1
-                                },
-                                {
-                                  "type": "number",
-                                  "const": 2
-                                },
-                                {
-                                  "type": "number",
-                                  "const": 3
-                                },
-                                {
-                                  "type": "number",
-                                  "const": 4
+                                  "type": "null"
                                 }
                               ]
                             },
@@ -5010,7 +5033,8 @@ Run a bounded, submaximal guided strength assessment from reported attempts and 
                           "LOWER_BOUND",
                           "STOPPED_PAIN",
                           "BELOW_MINIMUM_LOAD",
-                          "SKIPPED"
+                          "SKIPPED",
+                          "EFFORT_UNKNOWN"
                         ]
                       },
                       "nextLoadLb": {
